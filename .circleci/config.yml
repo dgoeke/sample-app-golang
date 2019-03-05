@@ -179,7 +179,7 @@ jobs:
             docker push "${FULL_IMAGE_NAME}"
       - run:
           name: Deploy new image
-          working_directory: /home/circleci/app/testapp/terraform/envs/dev
+          working_directory: /home/circleci/app/terraform/envs/dev
           command: |
             /tmp/terraform init
             /tmp/terraform plan -var "tag=${IMAGE_VERSION}" -out=plan.out
@@ -218,7 +218,7 @@ jobs:
             docker load --input workspace/docker-image/image.tar
       - run:
           name: Deploy new image
-          working_directory: /home/circleci/app/testapp/terraform/envs/prod
+          working_directory: /home/circleci/app/terraform/envs/prod
           command: |
             export IMAGE_VERSION=${DOCKER_IMAGE_VERSION}-$(git rev-parse --short HEAD)
             /tmp/terraform init
