@@ -133,7 +133,7 @@ jobs:
       - run:
           name: Scanning application Docker image
           command: |
-            docker run --detach --name app $DOCKER_IMAGE /bin/sh
+            docker run --detach --name app -it $DOCKER_IMAGE /bin/sh
             docker run --name=scanner -v '/var/run/docker.sock:/var/run/docker.sock' my-inspec exec profiles/sample -t docker://app
 
   deploy_dev:
