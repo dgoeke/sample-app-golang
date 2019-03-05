@@ -17,3 +17,5 @@
 /bin/
 /vendor/
 /Godeps/
+.terraform/
+plan.out
